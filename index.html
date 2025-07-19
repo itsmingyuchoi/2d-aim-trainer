@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>에임 연습 게임</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="settings-screen" class="screen active">
+        <h1>에임 연습 게임</h1>
+        <div class="settings-container">
+            <div class="setting-group">
+                <h2>게임 선택</h2>
+                <label><input type="radio" name="game-mode" value="A" checked> 랜덤 에임</label>
+                <label><input type="radio" name="game-mode" value="B"> 체이스</label>
+            </div>
+
+            <div class="setting-group">
+                <h2>전역 설정</h2>
+                <label for="crosshair-size">크로스헤어 크기: <span id="crosshair-size-value">10</span>px</label>
+                <input type="range" id="crosshair-size" min="2" max="50" value="10">
+                
+                <label for="time-limit">시간 제한: <span id="time-limit-value">30</span>초</label>
+                <input type="range" id="time-limit" min="10" max="120" value="30" step="5">
+            </div>
+
+            <div id="game-a-settings" class="game-settings">
+                <h2>랜덤 에임 설정</h2>
+                <label for="target-size-a">적 사이즈: <span id="target-size-a-value">20</span>px</label>
+                <input type="range" id="target-size-a" min="10" max="50" value="20">
+
+                <label for="target-lifespan">뜨는 시간: <span id="target-lifespan-value">2</span>초</label>
+                <input type="range" id="target-lifespan" min="0.5" max="5" value="2" step="0.5">
+            </div>
+
+            <div id="game-b-settings" class="game-settings" style="display: none;">
+                <h2>체이스 설정</h2>
+                <label for="target-size-b">적 사이즈: <span id="target-size-b-value">30</span>px</label>
+                <input type="range" id="target-size-b" min="10" max="100" value="30">
+            </div>
+        </div>
+        <button id="start-button">게임 시작</button>
+    </div>
+
+    <div id="game-screen" class="screen">
+        <canvas id="game-canvas"></canvas>
+        <div id="game-timer">00:00</div>
+        <div id="game-score">점수: 0</div>
+    </div>
+
+    <div id="results-screen" class="screen">
+        <h1>게임 결과</h1>
+        <p id="result-text"></p>
+        <p id="high-score-text"></p>
+        <button id="back-to-main-button">메인으로 돌아가기</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
