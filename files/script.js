@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const targetSizeAInput = document.getElementById('target-size-a');
     const targetLifespanInput = document.getElementById('target-lifespan');
     const targetSizeBInput = document.getElementById('target-size-b');
+    const targetSpeedBInput = document.getElementById('target-speed-b');
     
     // 설정 값 표시
     const crosshairSizeValue = document.getElementById('crosshair-size-value');
@@ -18,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const targetSizeAValue = document.getElementById('target-size-a-value');
     const targetLifespanValue = document.getElementById('target-lifespan-value');
     const targetSizeBValue = document.getElementById('target-size-b-value');
+    const targetSpeedBValue = document.getElementById('target-speed-b-value');
 
     // 버튼
     const startButton = document.getElementById('start-button');
@@ -51,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
             targetSizeA: targetSizeAInput.value,
             targetLifespan: targetLifespanInput.value,
             targetSizeB: targetSizeBInput.value,
+            targetSpeedB: targetSpeedBInput.value,
         };
         localStorage.setItem(SETTINGS_KEY, JSON.stringify(settingsToSave));
     }
@@ -65,6 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
             targetSizeAInput.value = loaded.targetSizeA;
             targetLifespanInput.value = loaded.targetLifespan;
             targetSizeBInput.value = loaded.targetSizeB;
+            targetSpeedBInput.value = loaded.targetSpeedB || 5;
 
             // Trigger change to update UI
             gameModeRadios.forEach(radio => radio.dispatchEvent(new Event('change')));
@@ -84,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     targetSizeAInput.addEventListener('input', () => targetSizeAValue.textContent = targetSizeAInput.value);
     targetLifespanInput.addEventListener('input', () => targetLifespanValue.textContent = targetLifespanInput.value);
     targetSizeBInput.addEventListener('input', () => targetSizeBValue.textContent = targetSizeBInput.value);
+    targetSpeedBInput.addEventListener('input', () => targetSpeedBValue.textContent = targetSpeedBInput.value);
 
     gameModeRadios.forEach(radio => {
         radio.addEventListener('change', () => {
@@ -189,6 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
             targetSizeA: parseInt(targetSizeAInput.value),
             targetLifespan: parseFloat(targetLifespanInput.value) * 1000,
             targetSizeB: parseInt(targetSizeBInput.value),
+            targetSpeedB: parseInt(targetSpeedBInput.value),
         };
 
         initGame();
@@ -371,7 +377,7 @@ document.addEventListener('DOMContentLoaded', () => {
         update() {
             if (!this.target) return;
 
-            const speed = 2 + (settings.timeLimit - remainingTime) / 10;
+            const speed = settings.targetSpeedB;
             this.target.x += Math.cos(this.target.angle) * speed;
             this.target.y += Math.sin(this.target.angle) * speed;
 
