@@ -341,7 +341,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             return {
                 finalScoreText: `최종 점수: ${this.score}점`,
-                highScoreText: newHighScore ? `신기록 달성!` : `최고 기록: ${highScore}점`
+                // highScoreText: newHighScore ? `신기록 달성!` : `최고 기록: ${highScore}점`
             };
         }
     }
@@ -424,7 +424,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             return {
                 finalScoreText: `총 추적 시간: ${finalTime}초`,
-                highScoreText: newHighScore ? `신기록 달성!` : `최고 기록: ${highScore.toFixed(2)}초`
+                // highScoreText: newHighScore ? `신기록 달성!` : `최고 기록: ${highScore.toFixed(2)}초`
             };
         }
     }
