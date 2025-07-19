@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2D Aim Trainer - 온라인 에임 연습</title>
     <meta name="description" content="온라인 2D 에임 트레이너로 당신의 에임 실력을 향상시키세요. 다양한 게임 모드와 설정으로 맞춤형 훈련이 가능합니다.">
     <meta name="keywords" content="에임, 연습, 2D, MOBA, 온라인, trainer, aim">
-    
+
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="2D Aim Trainer - 온라인 에임 연습">
@@ -19,6 +20,7 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div id="settings-screen" class="screen active">
         <h1>2D 에임 연습</h1>
@@ -33,7 +35,7 @@
                 <h2>전역 설정</h2>
                 <label for="crosshair-size">크로스헤어 크기: <span id="crosshair-size-value">10</span>px</label>
                 <input type="range" id="crosshair-size" min="2" max="50" value="10">
-                
+
                 <label for="time-limit">시간 제한: <span id="time-limit-value">30</span>초</label>
                 <input type="range" id="time-limit" min="10" max="120" value="30" step="5">
             </div>
@@ -54,6 +56,13 @@
             </div>
         </div>
         <button id="start-button">게임 시작</button>
+        <footer>
+            <p class="creator-message">슈퍼바이브 에임 연습 하려고 만들었습니다. 우리 슈바 많이 사랑해주세요.</p>
+            <p class="creator-message">설정은 브라우저에 저장됩니다. ESC 를 눌러 게임을 중단할 수 있습니다.</p>
+            <p>&nbsp;</p>
+            <p>Made by <a href="https://mingyuchoi.com">Mingyu Choi</a> with Gemini CLI // <a href="https://github.com/itsmingyuchoi/2d-aim-trainer">Project GitHub</a></p>
+            <p>바이브 코딩 테스트를 위해서 제작되었습니다.</p>
+        </footer>
     </div>
 
     <div id="game-screen" class="screen">
@@ -71,4 +80,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
